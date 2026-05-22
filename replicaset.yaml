@@ -5,7 +5,7 @@ metadata:
   labels: 
     app: web
 spec: #DEFINES THE BEHAVIOUR OF REPLICA SET
-  replicas: 2
+  replicas: 3
   selector: 
     matchLabels: 
       web: nginx
@@ -19,6 +19,6 @@ spec: #DEFINES THE BEHAVIOUR OF REPLICA SET
           name: nginx_container
           ports: 
             - containersport: 80
-                  
+
 
 
