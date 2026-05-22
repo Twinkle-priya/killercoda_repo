@@ -1,5 +1,4 @@
 apiVersion: v1
-kind: ns
+kind: Namespace
 metadata:
-  name:twinkle-ns
-  
+  name: twinkle-ns
