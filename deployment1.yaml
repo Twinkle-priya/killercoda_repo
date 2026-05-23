@@ -15,8 +15,8 @@ spec: # Behaviour of the replicaset
         app: web
     spec: # behaviour fo the pod
       containers: 
-        - name: my-container
-          image: icoder
+        - name: twinkle-container
+          image: twinklepriya/icoder-ap
           ports:
             - containerPort: 1000
             
