@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx
+  labels: 
+    first: app
+spec: # Behaviour of the replicaset
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: web
+  template:
+    metadata: 
+      labels: 
+        app: web
+    spec: # behaviour fo the pod
+      containers: 
+        - name: my-container
+          image: nginx
+          ports:
+            - containerPort: 80
+            
+
+
+
+
