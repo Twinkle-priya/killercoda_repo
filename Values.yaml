@@ -1,0 +1,27 @@
+namespace:
+  name: twinkle-ns
+replicas: 3
+labels: 
+  app: web
+  container:
+    - name: veg-container
+      port:  3000  
+service:
+   name: my-service
+   port:  3000
+   targetPort: 3001   
+   type: LoadBalancer
+configMap:  
+  name: twinkle-configmap
+  data:
+    DB_Host: Mongodb
+    DB_Port: "27017"
+    DB_User: admin
+    APP_name: vegetable-order-app
+    APP_Port: "3000"
+secret:
+  name: twinkle-secret
+  type: Opaque
+  data: 
+    DB_User: QURNSU4=
+    DB_Pass: dHdpbmtsZTEyMw==        
