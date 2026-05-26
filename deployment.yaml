@@ -20,9 +20,12 @@ spec: # Behaviour of the replicaset
           ports:
             - containerPort: 3000
           envFrom: 
-            -ConfigMapRef: 
-              name: twinkle-configmap
---- 
+            - ConfigMapRef: 
+                name: twinkle-configmap
+              secretRef: 
+                name: twinkle-secret
+---                
+
 apiVersion: v1
 kind: Service
 metadata: 
