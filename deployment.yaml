@@ -19,6 +19,9 @@ spec: # Behaviour of the replicaset
           image: twinklepriya/vegetable-order-app:v1.0.0
           ports:
             - containerPort: 3000
+          envFrom: 
+            -ConfigMapRef: 
+              name: twinkle-configmap
 --- 
 apiVersion: v1
 kind: Service
