@@ -1,43 +1,43 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: vegetable-order-app
+  name: {{.Release.name}}-dep
   labels: 
     first: app
 spec: # Behaviour of the replicaset
-  replicas: 3
+  replicas: {{.Values.replicas}}
   selector: 
     matchLabels: 
       app: web
   template:
     metadata: 
       labels: 
-        app: web
+        app: {{.Values.labels.web}}
     spec: # behaviour fo the pod
       containers: 
-        - name: veg-container
-          image: twinklepriya/vegetable-order-app:v1.0.0
+        - name: {{.Values.container.name}}
+          image: {{.Values.container.image}}
           ports:
-            - containerPort: 3000
+            - containerPort: {{.Values.container.port}}
           envFrom: 
             - ConfigMapRef: 
-                name: twinkle-configmap
+                name: {{.Values.configMap.name}}
               secretRef: 
-                name: twinkle-secret
+                name: {{.Values.secret.name}}
 ---                
 
 apiVersion: v1
 kind: Service
 metadata: 
-  name: my-service
+  name: {{.Values.service.name}}
 spec:
   selector: 
     app: web
 ports:
   - protocol: TCP
-    port:  3000
-    targetPort: 3001
-type: ClusterIP    
+    port: {{.Values.service.port}}
+    targetPort: {{.Values.service.targetport}}
+type: {{.Values.service.type}}
 
   
 
